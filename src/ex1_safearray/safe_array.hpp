@@ -69,6 +69,9 @@ public:
     /// The Copy Assignment operator overloading.
     const SafeArray& operator = (const SafeArray& rhv)
     {
+        if (this == &rhv)
+            return *this;
+
         // the follows is a straightforward and unsafe approach
         //    if(_arr)
         //       delete [] _arr;
@@ -164,7 +167,21 @@ private:
 };// SafeArray
 
 
+template<typename T>
+std::ostream& operator << (std::ostream& s, const SafeArray<T>& arr)
+{
+    s << "[";
+    for (size_t i = 0; i < arr.getSize(); ++i)
+    {
+        if(i)
+            s << ", ";
+        s << arr[i];
+    }
 
+    s << "]";
+
+    return s;
+}
 
 
 

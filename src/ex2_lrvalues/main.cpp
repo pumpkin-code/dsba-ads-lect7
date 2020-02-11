@@ -100,8 +100,6 @@ void test6()
     assert(arr1.getPtr() != nullptr);
     assert(arr1[0] == 10);
     assert(arr1.at(2) == 30);
-
-    std::cout << arr1 << '\n';
 }
 
 
